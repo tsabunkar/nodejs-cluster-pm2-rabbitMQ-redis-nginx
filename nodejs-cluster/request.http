@@ -1,0 +1,16 @@
+# Fibonacci Series works fast when input is less value
+
+http://localhost:3000?number=10
+
+###
+
+# but if number is large then time to execute is slow
+
+http://localhost:3000?number=145
+
+###
+
+# Now if we try to execute second request, when above request is going, nodejs will not procced 
+# it, until the first request is completed
+
+http://localhost:3000?number=2

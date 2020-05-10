@@ -100,3 +100,33 @@
   - Returns an array of objects containing information about each logical CPU cores
 - os.cpus().length
   - Return the count of logical CPUs
+
+---
+
+# Nodejs Cluster Load Test
+
+- Use tools to test nodejs cluster:
+  - Load Testing using 'loadtest' package
+    - To install nodejs cluster, install 'loadtest' package using npm install command
+    - sudo npm i -g loadtest
+    - https://www.npmjs.com/package/loadtest
+    - Set max number of req : -n
+    - Concurrent requests : -c
+    - number of requests per second : --rps
+    - command : loadtest -n 1000 -c 100 --rps 200 http://localhost:3000?number=10
+  - Load Testing using 'artillery' package
+    - To load test Nodejs cluster, install 'artillery' package using command
+    - sudo npm install -g artillery --allow-root --unsafe-perm=true
+    - https://www.npmjs.com/package/artillery
+    - used for ad-hoc testing : quick
+    - used for creating virtual users : --count
+    - number of request per virtual user : -n
+    - command : artillery quick --count 10 -n 20 http://localhost:3000?number=20
+    - DOC: https://artillery.io/docs/getting-started/
+- Usage of loadtest:
+  - terminal1 : nodemon nodejs-cluster/server.js
+  - terminal2 : loadtest -n 1000 -c 100 --rps 200 http://localhost:3000?number=10
+- Usage of artillery:
+  - \$ artillery -V
+  - terminal1 : nodemon nodejs-cluster/server.js
+  - terminal2 : artillery quick --count 10 -n 20 http://localhost:3000?number=20
