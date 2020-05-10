@@ -1,0 +1,23 @@
+- PM2 generate config file
+  - cd ./pm2/
+  - pm2 ecosystem (Generate ecosystem.config.js file)
+- PM2 start command
+  - pm2 start ecosystem.config.js
+- To monitor the processes, use
+  - pm2 monit
+- Open new terminal for load test
+  - loadtest -n 1000 -c 100 --rps 100 http://localhost:3000?number=20
+- To list all the applications use
+  - pm2 list
+- To stop any/all processes use
+  - pm2 stop all
+- To delete any/all processes use
+  - pm2 delete all
+- PM2 also provide web interface to monitor
+  - https://app.pm2.io/
+  - (create a bucket : first-pm2)
+  - pm2 link fcv3lokkawdxq97 rbckqg6v7i9e5ah (activated)
+  - pm2 start ecosystem.config.js
+  - refresh the https://app.pm2.io/ url
+  - loadtest -n 10000 -c 100 --rps 100 http://localhost:3000?number=20
+  - refresh the pm2 url

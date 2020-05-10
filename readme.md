@@ -130,3 +130,51 @@
   - \$ artillery -V
   - terminal1 : nodemon nodejs-cluster/server.js
   - terminal2 : artillery quick --count 10 -n 20 http://localhost:3000?number=20
+
+---
+
+# PM2
+
+- PM2 --> used to run nodejs application in cluster
+- Reason why do we need PM2
+  - If we create/fork worker process, in production env these child process may get kill due to many reasons, thus starting this kill process with no-down time can be tricky
+  - Restart one or more child process can be tricky
+  - How do we keep our nodejs application alive forever in production env ?
+- What is PM2
+  - PM2 is a production process manager for Nodejs applications with a built-in load-balancer
+  - PM2 allows to :
+    - Keep applications alive forever
+    - Reload them without downtime
+    - Facilitate common system admin tasks like:
+      - Monitoring, stopping, deleting processes etc
+- PM2 Working
+  - PM2 makes usage of Nodejs cluster module
+  - The scaled application's child processes can automatically share server ports
+  - You can start Nodejs application using PM2 by using
+    - Command line options
+    - Process configuration file [js/yaml/json file]
+- Install PM2 using NPM
+  - https://www.npmjs.com/package/pm2
+  - sudo npm i -g pm2
+- Creating Process file
+  - You can create a process file to:
+    - Fine-tune the behavior fo applications
+    - Options
+    - Environment variables
+    - Log files of each application
+  - To create a process file use command:
+    - pm2 ecosystem
+  - After creating a process file, use command:
+    - pm2 [start|restart|stop|delete] ecosystem.config.js
+- PM2 Commands
+  - PM2 start command
+    - pm2 start <process_config_file>
+    - pm2 start ecosystem.config.js
+  - To monitor the processes, use
+    - pm2 monit
+  - To stop any/all processes use
+    - pm2 stop all/<app_name>
+  - To delete any/all processes use
+    - pm2 delete all/<app_name>
+  - To list all the applications use
+    - pm2 list
