@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-cluster-pm2-rabbitMQ-redis-nginx",
+  "version": "1.0.0",
+  "description": "- In software we perform two types of Operation   - Non-blocking operations   - Blocking operations - Non-blocking operations:   - Non-blocking refers to code that doesn't block execution.   - any operations which are non-blocking in nature are performed in L1, L2 and L3 cache   - bacically in RAM   - number of cycles requires are very less   - example : mathematical calculations - Blocking operations:   - number of cycles requires are millions   - ex: data-base operations, file i/o operations, network operations   - js engine is single threaded i.e- one execution stack in js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
