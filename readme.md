@@ -178,3 +178,25 @@
     - pm2 delete all/<app_name>
   - To list all the applications use
     - pm2 list
+
+---
+
+# Introduction to child_process module
+
+- This module provides the ability to spawn child processes
+- It offers number of methods. like - fork()
+
+```
+ - const worker1 = require("child_process").fork("./workers/fab-series-worker1");
+ - const worker2 = require("child_process").fork("./workers/fab-series-worker2");
+```
+
+- child_process.fork() method:
+  - The fork() method returns an instance of ChildProcess Object
+    - It implements the Nodejs EventEmitter API which allows parent process to register listener functions
+  - When certain events occurs in the lifecycle of child process, these listener functions will get executed.
+  - This method returns ChildProcess object
+  - The ChildProcess object has built-in communication channel which is IPC [Inter Process communication channel]
+  - Using this channel, messages can be send back and forth between parent and child processes.
+  - Each process has its own memory with their own V8 engine
+  - NOTE: bcoz of additional resource allocation, spawning large number of Nodejs processes is not recommended.
