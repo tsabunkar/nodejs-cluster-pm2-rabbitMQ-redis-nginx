@@ -9,10 +9,10 @@ if (cluster.isMaster) {
 
   // !using child_process module we are forking two child process
   const worker1 = require('child_process').fork(
-    './master-child-communication/workers/fab-series-worker1'
+    './master-child-comm/workers/fab-series-worker1'
   );
   const worker2 = require('child_process').fork(
-    './master-child-communication/workers/fab-series-worker2'
+    './master-child-comm/workers/fab-series-worker2'
   );
 
   console.log(`Child Process ID is ${worker1.pid}`);
