@@ -1,4 +1,4 @@
-const fabObj = require('../math-logic/fibonacci-series');
+const fabObj = require('../fibonacci-series');
 const rq = require('amqplib/callback_api');
 
 function sendValueInFabQueue2(num) {

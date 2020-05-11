@@ -241,8 +241,16 @@
 
 - To pull rabbitMQ from docker Hub
   - \$ docker pull rabbitmq:3.8.3
+  - \$ docker pull rabbitmq:3.8.3-management <-- (Use this image as it has browser tools as well)
 - To run as docker container:
-  - \$ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.8.3
+  - \$ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.8.3-management
+  - Go to: http://127.0.0.1:15672/
+  - default
+    - username : guest
+    - password : guest
+  - (or) to run this docker image you can use docker compose i.e.
+    - create docker-compose.yml file
+    - \$ docker-compose.yml
 - To use RabbitMQ in nodejs App - install 'amqplib' package using NPM
   - npm i --save amqplib
   - https://www.npmjs.com/package/amqplib
@@ -252,3 +260,4 @@ REF :
 
 - https://hub.docker.com/_/rabbitmq?tab=description
 - https://www.rabbitmq.com/download.html
+- https://onlinehelp.coveo.com/en/ces/7.0/administrator/changing_the_rabbitmq_administrator_password.htm
