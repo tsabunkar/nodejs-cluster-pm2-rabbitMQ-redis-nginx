@@ -1,0 +1,9 @@
+# Fibonacci Series works fast when input is less value
+
+http://localhost:3000?number=40
+
+###
+
+# odd number
+
+http://localhost:3000?number=39
