@@ -200,3 +200,55 @@
   - Using this channel, messages can be send back and forth between parent and child processes.
   - Each process has its own memory with their own V8 engine
   - NOTE: bcoz of additional resource allocation, spawning large number of Nodejs processes is not recommended.
+
+---
+
+# Communication between processes (Master and Child process) using PM2
+
+- wkt, how to run nodejs application in cluster mode.
+- In master-child-comm ==> We have seen how to pass message from master to child process and vice-versa by using cluster and child_process modules provide by node
+- But if we run our application using PM2 we will not able to use cluster modules as these are internally used by PM2
+- How to establish communication between processes of PM2 ==> Thus we will be using open source message broker called RabbitMQ
+
+## What is RabbitMQ
+
+- RabbitMQ is an open source message broker
+- It offers two important roles:
+  - Producer
+  - Consumer
+- Producer is application which publish a message, published message will be stored in RabbitMQ broker
+- Consumer who wish to get above published messages have to subscribe to RabbitMQ queue, then only consumers can consume messages from rabbitMQ broker
+- Scenarios where RabbitMQ fits:
+  - purchase order system, processing order, dispatching order and supply management -- this can take some time to process, thus we can store details of order in message queue
+
+## Why RabbitMQ ?
+
+- As we are going to use PM2 to create and manage processes, we can not establish communication between master and child process. bcoz the control is now with PM2
+- You can not use the methods from child_process and cluster modules
+- With RabbitMQ, we can distribute messages to multiple consumers.
+- Also we can load balance between the workers.
+
+## Core of RabbitMQ
+
+- Producer : The application/process which sends the messages to queue
+- Consumer : The application/proces which recieve the messages from the subscribed queue
+- Queue : where the messages are store
+- Message : The message/information sent by producer to the consumer
+- Channel : A medium using which we can send messages or receive messages is called channel
+- AMQP : Advance Message Queue Protocol used by RabbitMQ for messaging.
+
+## Install RabbitMQ
+
+- To pull rabbitMQ from docker Hub
+  - \$ docker pull rabbitmq:3.8.3
+- To run as docker container:
+  - \$ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.8.3
+- To use RabbitMQ in nodejs App - install 'amqplib' package using NPM
+  - npm i --save amqplib
+  - https://www.npmjs.com/package/amqplib
+  - It is a library and client for Nodejs
+
+REF :
+
+- https://hub.docker.com/_/rabbitmq?tab=description
+- https://www.rabbitmq.com/download.html
