@@ -261,3 +261,76 @@ REF :
 - https://hub.docker.com/_/rabbitmq?tab=description
 - https://www.rabbitmq.com/download.html
 - https://onlinehelp.coveo.com/en/ces/7.0/administrator/changing_the_rabbitmq_administrator_password.htm
+
+---
+
+# What is Redis ?
+
+- It is in-memory database
+- It is NoSql database
+- It stores data in a key-value pair
+- It supports multiple data structures like : hashes, List, Sets, Sorted Sets, Bitmap, hyperloglogs, geospatial indexes with radius queries and streams.
+- It is open source written in ANSI C
+
+## Use cases for Redis
+
+- Caching
+- Cookie Storage
+- Expiring Data
+- Publisher/Subscriber model
+- database
+- message broker
+
+## Download and Installing Redis
+
+- docker pull redis:6
+- docker run --name my-redis -d redis:6
+- docker container ls
+
+REF:
+https://hub.docker.com/_/redis
+
+## Using Redis in Nodejs Application
+
+- To use Redis in Nodejs Application, we will install package : redis
+- https://www.npmjs.com/package/redis
+- sudo npm i redis
+
+## How to ue Redis ?
+
+- Import redis in Nodejs App:
+
+```
+ const redis = require("redis");
+```
+
+- Redis object given a function with the name "createClient"
+- createClient func takes paramete as options which is an object
+- The options object takes several properties like:
+  - host: 127.0.0.1
+  - port: 6379
+
+```
+let client = redis.createClient({
+  host: keys.redisHost,
+  port: keys.redisPort
+});
+```
+
+- set() is used to Storing our data with key name --> posts
+
+```
+client.set("posts", JSON.stringify(data));
+```
+
+- get() is to fetch data with keyName --> users
+
+```
+client.get("users", (err, reply) =>{
+  if(err) res.status(500).send("<h4> Something went wrong!</h4>");
+
+  if(reply !== null){
+    res.send(reply);
+  }
+})
+```
