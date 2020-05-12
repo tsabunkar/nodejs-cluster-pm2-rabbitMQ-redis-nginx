@@ -41,4 +41,9 @@ Terminal-4
 - C:\Program Files\RabbitMQ\rabbitmq_server-3.8.3\sbin> rabbitmqctl list_queues
 - pm2 start Worker1
 - C:\Program Files\RabbitMQ\rabbitmq_server-3.8.3\sbin> rabbitmqctl list_queues
-  [Instead of listing queues --> Use RabbitMQ web interface to view the list ]
+
+[Instead of listing queues --> Use RabbitMQ web interface to view the list ]
+
+- docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.8.3-management
+- http://127.0.0.1:15672/
+- Queues tab to view all the queues
