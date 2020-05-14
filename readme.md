@@ -358,10 +358,12 @@ client.get("users", (err, reply) =>{
 
 - using docker
   - docker pull nginx:1.17
+  - docker container run --publish 9090:80 --detach nginx:1.17 (running ar PORT: 9090)
+  - Goto http://localhost:9090/
 
 ## Few commands of Nginx
 
-- Stop fast shutdown: \$ nginx-s stop
-- Quit graceful shutdown: \$ nginx-s quit
-- Reload reloading the configuration file: \$ nginx-s reload
-- Re-open reopening the log files: \$ nginx-s reopen
+- Stop fast shutdown: \$ nginx -s stop
+- Quit graceful shutdown: \$ nginx -s quit
+- Reload reloading the configuration file: \$ nginx -s reload
+- Re-open reopening the log files: \$ nginx -s reopen
