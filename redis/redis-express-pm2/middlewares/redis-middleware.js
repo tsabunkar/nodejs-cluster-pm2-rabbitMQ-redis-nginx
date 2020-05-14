@@ -7,6 +7,7 @@ let client = redis.createClient({
 function redisMiddleware(req, res, next) {
   switch (req.url) {
     case '/posts':
+      // !getting the data from the redis
       client.get('posts', (err, reply) => {
         if (err) res.status(500).send('<h4>Something went wrong!</h4>');
         if (reply !== null) {
