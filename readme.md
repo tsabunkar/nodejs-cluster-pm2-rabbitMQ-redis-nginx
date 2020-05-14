@@ -334,3 +334,34 @@ client.get("users", (err, reply) =>{
   }
 })
 ```
+
+---
+
+# Introduction to Nginx
+
+- Nginx is one of the most powerful web server which follows non-threaded and event driven architecture
+- It can also be used as:
+  - Reverse proxy
+  - Load balancer (distribute incoming request to our applications which are distributed as cluster)
+  - Caching server
+  - also serve static files
+- Nginx has one master process and several worker processes
+- The main job of master is to:
+  - Read and evaluate configuration file
+  - Maintain worker processes
+- Worker processes do the actual processing of the requests
+- The number of worker processes are defined in configuration file:
+  - The number of processes can be fixed for a given configuration
+  - or can be dynamic to the number of avaliable CPU cores
+
+## donwload and install Nginx
+
+- using docker
+  - docker pull nginx:1.17
+
+## Few commands of Nginx
+
+- Stop fast shutdown: \$ nginx-s stop
+- Quit graceful shutdown: \$ nginx-s quit
+- Reload reloading the configuration file: \$ nginx-s reload
+- Re-open reopening the log files: \$ nginx-s reopen
