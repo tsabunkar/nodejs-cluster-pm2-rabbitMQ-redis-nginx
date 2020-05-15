@@ -68,6 +68,7 @@ INSTEAD of VISITING ABOVE URL- since we are using nginx as reverse proxy so
   - http://172.18.0.2/posts
   - http://172.18.0.2/comments
     or
+  - http://localhost/users
   - http://localhost/posts
   - http://localhost/comments
 

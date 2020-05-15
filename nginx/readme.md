@@ -1,4 +1,4 @@
-# proj stru
+# proj difference b/w nginx-reverse-proxy & nginx-load-balancer_reverse-proxy
 
 - nginx-reverse-proxy :
   - (Nginx acting as reverse proxy for express server- that is cached by redis and running in PM2)
